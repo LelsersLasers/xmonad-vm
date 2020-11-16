@@ -1,0 +1,34 @@
+Config { font= "xft: Monospace:pixelsize=12"
+       , additionalFonts = []
+       , borderColor = "#E5E9F0"
+       -- , border = BottomB
+       , bgColor = "#2E3440"
+       , fgColor = "#E5E9F0"
+       , alpha = 255
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [
+                    -- , Run Com "/home/millankumar/.config/xmobar/barScripts/battery" [] "battery" 10
+                      Run Com "/home/millankumar/.config/xmobar/barScripts/volume" [] "volume"      10
+                    , Run Com "/home/millankumar/.config/xmobar/barScripts/clock"  [] "clock"       10
+                    , Run Com "/home/millankumar/.config/xmobar/barScripts/cpu"    [] "cpuu"        10
+                    , Run Com "/home/millankumar/.config/xmobar/barScripts/memory" [] "mem"         10 
+                    , Run Com "/home/millankumar/.config/xmobar/barScripts/swap"   [] "swa"         10 
+                    , Run StdinReader
+                    -- , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <fc=#B48EAD>%StdinReader%</fc> }{ <fc=#EBCB8B> Cpu: %cpuu% </fc>| <fc=#A3BE8C>Mem: %mem%</fc> | <fc=#88C0D0>Swap: %swa%</fc> | <fc=#5E81AC>Vol: %volume%</fc> | <fc=#B48EAD>%clock%</fc> "
+       }
+
+
+

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+line="$(free -h | grep Swap)"
+echo "$line" >  ~/.config/xmobar/barScripts/temp/swapTemp
+read title total used a b c d < ~/.config/xmobar/barScripts/temp/swapTemp
+
+line="$(free | grep Swap)"
+echo "$line" > ~/.config/xmobar/barScripts/temp/swapTemp
+read title totalB usedB a b c d < ~/.config/xmobar/barScripts/temp/swapTemp
+
+usedB=$((100 * usedB))
+
+percent="$(echo $usedB / $totalB | bc -l | cut -c -4)"
+
+echo -e "$used/$total ($percent%)"
+
